@@ -10,8 +10,8 @@ import SwiftUI
 @main
 struct PassMakerApp: App {
     var body: some Scene {
-        WindowGroup {
+        MenuBarExtra("Testing this!", systemImage: "circle.fill") {
             ContentView()
-        }
+        }.menuBarExtraStyle(.window)
     }
 }
