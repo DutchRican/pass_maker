@@ -20,12 +20,12 @@ struct ContentView: View {
                 Toggle("Use uppercase letters", isOn: $isUpper)
                 Toggle("Use numbers", isOn: $isNumbers)
                 Toggle("Use special characters", isOn: $isPunctuation)
-                VStack {
+                VStack(alignment: .leading) {
                     Slider(
                         value: $pLength,
                         in: 4...32
                     )
-                    Text("Password length: \(Int(pLength))")
+                    Text("Password length: \(Int(pLength)) characters")
                     
                 }
                 .padding(.top, 20)
@@ -46,7 +46,9 @@ struct ContentView: View {
                     } else {
                         Text("\(String(password.map {_ in "*"}))")
                     }
-                }.padding(.trailing, 5)
+                }                .font(.system(size: 10, weight: .regular, design: .monospaced))
+                    
+                .padding(.trailing, 5)
                 Spacer()
                 
             }.frame(height: 20)
@@ -73,7 +75,7 @@ struct ContentView: View {
             
         }
         .padding()
-        .frame(width: 350)
+        .frame(width: 300)
     }
 }
 
