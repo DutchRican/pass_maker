@@ -11,7 +11,7 @@ import SwiftUI
 struct PassMakerApp: App {
     var body: some Scene {
         MenuBarExtra("Testing this!", systemImage: "lock.shield") {
-            ContentView()
+            ContentView().background(Color("MainBG"))
         }.menuBarExtraStyle(.window)
     }
 }

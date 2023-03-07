@@ -16,21 +16,7 @@ struct ContentView: View {
     @State var seePassword: Bool = false
     var body: some View {
         VStack {
-            VStack(alignment: .leading) {
-                Toggle("Use uppercase letters", isOn: $isUpper)
-                Toggle("Use numbers", isOn: $isNumbers)
-                Toggle("Use special characters", isOn: $isPunctuation)
-                VStack(alignment: .leading) {
-                    Slider(
-                        value: $pLength,
-                        in: 4...32
-                    )
-                    Text("Password length: \(Int(pLength)) characters")
-                    
-                }
-                .padding(.top, 20)
-                Spacer().frame(height: 20)
-            }
+            TogglesView(isUpper: $isUpper, isNumbers: $isNumbers, isPunctuation: $isPunctuation, pLength: $pLength)
             Button {
                 password = createPasswordWith(length: Int(pLength), hasNumber: isNumbers, hasPunctuation: isPunctuation, hasUpper: isUpper)
             }
@@ -38,7 +24,18 @@ struct ContentView: View {
             
             HStack {
                 if password.isEmpty { EmptyView() }  else
-                { Button(action: {seePassword.toggle()}) { Image(systemName: seePassword ? "eye.slash" : "eye")}}
+                {
+                    HStack {
+                        Button(action: {
+                            password = ""
+                            seePassword = false
+                        }) {
+                            Image(systemName: "trash").font(.caption).foregroundColor(.red)
+                            
+                        }
+                        Button(action: {seePassword.toggle()}) { Image(systemName: seePassword ? "eye.slash" : "eye").font(.footnote)}
+                    }
+                }
                 Spacer()
                 HStack {
                     if seePassword {
@@ -47,15 +44,15 @@ struct ContentView: View {
                         Text("\(String(password.map {_ in "*"}))")
                     }
                 }                .font(.system(size: 10, weight: .regular, design: .monospaced))
-                    
-                .padding(.trailing, 5)
+                
+                    .padding(.trailing, 5)
                 Spacer()
                 
             }.frame(height: 20)
             Divider().padding(.vertical, 10)
             HStack{
                 Button {
-                    DispatchQueue.global().async {
+                    Task {
                         NSPasteboard.general.clearContents()
                         NSPasteboard.general.setString(self.password, forType: .string)
                         NSPasteboard.general.string(forType: .string)
@@ -65,17 +62,16 @@ struct ContentView: View {
                 }.disabled(password.isEmpty)
                 Spacer()
                 Button{
-                    DispatchQueue.global().async {
+                    Task {
                         exit(0)
                     }
                 } label: {
                     Text("Quit")
                 }
             }
-            
         }
         .padding()
-        .frame(width: 300)
+        .frame(width: 320)
     }
 }
 

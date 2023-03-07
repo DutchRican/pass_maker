@@ -12,6 +12,7 @@
 		9D3E722E29A13157006BE6D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E722D29A13157006BE6D0 /* Assets.xcassets */; };
 		9D3E723129A13157006BE6D0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E723029A13157006BE6D0 /* Preview Assets.xcassets */; };
 		9D3E723A29A1490F006BE6D0 /* passwordCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E723929A1490F006BE6D0 /* passwordCreate.swift */; };
+		9DCE215029B7D190006E304F /* TogglesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCE214F29B7D190006E304F /* TogglesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		9D3E723029A13157006BE6D0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9D3E723229A13157006BE6D0 /* PassMaker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PassMaker.entitlements; sourceTree = "<group>"; };
 		9D3E723929A1490F006BE6D0 /* passwordCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passwordCreate.swift; sourceTree = "<group>"; };
+		9DCE214F29B7D190006E304F /* TogglesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		9D3E722829A13156006BE6D0 /* PassMaker */ = {
 			isa = PBXGroup;
 			children = (
+				9DCE214E29B7D176006E304F /* Views */,
 				9D3E723829A148FA006BE6D0 /* logic */,
 				9D3E722929A13156006BE6D0 /* PassMakerApp.swift */,
 				9D3E722B29A13156006BE6D0 /* ContentView.swift */,
@@ -78,6 +81,14 @@
 				9D3E723929A1490F006BE6D0 /* passwordCreate.swift */,
 			);
 			path = logic;
+			sourceTree = "<group>";
+		};
+		9DCE214E29B7D176006E304F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9DCE214F29B7D190006E304F /* TogglesView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DCE215029B7D190006E304F /* TogglesView.swift in Sources */,
 				9D3E722C29A13156006BE6D0 /* ContentView.swift in Sources */,
 				9D3E722A29A13156006BE6D0 /* PassMakerApp.swift in Sources */,
 				9D3E723A29A1490F006BE6D0 /* passwordCreate.swift in Sources */,
@@ -289,6 +301,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -317,6 +330,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
